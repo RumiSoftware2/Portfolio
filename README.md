@@ -66,8 +66,8 @@ src/
 
 1. **Clonar el repositorio**
    ```bash
-   git clone https://github.com/tuusuario/mi-portfolio.git
-   cd mi-portfolio
+   git clone https://github.com/RumiSoftware2/Portfolio.git
+   cd Portfolio
    ```
 
 2. **Instalar dependencias**
@@ -120,14 +120,38 @@ El portafolio está optimizado para:
 ## 📞 Contacto
 
 - **Email**: smendowork@gmail.com
-- **GitHub**: [tuusuario](https://github.com/tuusuario)
-- **LinkedIn**: [tuusuario](https://linkedin.com/in/tuusuario)
+- **GitHub**: [RumiSoftware2](https://github.com/RumiSoftware2)
+- **LinkedIn**: [RumiSoftware2](https://linkedin.com/in/RumiSoftware2)
 - **YouTube**: [Math Suit](https://youtube.com/@map_314)
 
 ## 📄 Licencia
 
-Este proyecto está bajo la Licencia MIT. Puedes usarlo libremente para tu propio portafolio.
+Este proyecto está bajo la Licencia MIT.
 
 ---
 
-Desarrollado con ❤️ usando React y Tailwind CSS
+### MIT License
+
+Copyright (c) 2024 Sebastian Mendoza Duitama
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+Desarrollado con ❤️ por Sebastian Mendoza Duitama ([RumiSoftware2](https://github.com/RumiSoftware2))
