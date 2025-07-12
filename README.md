@@ -121,7 +121,7 @@ El portafolio está optimizado para:
 
 - **Email**: smendowork@gmail.com
 - **GitHub**: [RumiSoftware2](https://github.com/RumiSoftware2)
-- **LinkedIn**: [RumiSoftware2](https://linkedin.com/in/RumiSoftware2)
+- **LinkedIn**: [Sebastian Mendoza Duitama](https://www.linkedin.com/in/sebastian-mendoza-duitama-694845203)
 - **YouTube**: [Math Suit](https://youtube.com/@map_314)
 
 ## 📄 Licencia
