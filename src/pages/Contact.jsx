@@ -1,0 +1,331 @@
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Mail, Github, Linkedin, Youtube, Send, MapPin, Phone, CheckCircle, AlertCircle } from 'lucide-react';
+import { AnimatePresence } from 'framer-motion';
+
+function Contact() {
+  const [status, setStatus] = useState(null); // 'success' | 'error' | null
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus(null);
+
+    const form = e.target;
+    const data = new FormData(form);
+    const endpoint = 'https://formspree.io/f/xwpbbdvj';
+
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: data,
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        setStatus('success');
+        form.reset();
+      } else {
+        throw new Error(result.error || 'Error enviando el mensaje');
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus('error');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const socialLinks = [
+    {
+      name: 'GitHub',
+      url: 'https://github.com/RumiSoftware2',
+      icon: Github,
+      color: 'hover:bg-gray-900 hover:text-white'
+    },
+    {
+      name: 'LinkedIn',
+      url: 'https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile',
+      icon: Linkedin,
+      color: 'hover:bg-blue-600 hover:text-white'
+    },
+    {
+      name: 'YouTube',
+      url: 'https://youtube.com/@map_314?si=gkch6FhRUxh_hCb8',
+      icon: Youtube,
+      color: 'hover:bg-red-600 hover:text-white'
+    }
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  return (
+    <section id="contacto" className="py-20 bg-white relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/30"></div>
+      <div className="absolute top-20 right-10 w-64 h-64 bg-blue-200/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 left-10 w-80 h-80 bg-purple-200/20 rounded-full blur-3xl"></div>
+      
+      <div className="relative container mx-auto px-4 max-w-6xl">
+        <motion.div
+          className="text-center mb-16"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <motion.div
+            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6"
+            variants={itemVariants}
+          >
+            <Mail className="w-4 h-4" />
+            Contacto
+          </motion.div>
+          
+          <motion.h2 
+            className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6"
+            variants={itemVariants}
+          >
+            Hablemos de tu
+            <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              próximo proyecto
+            </span>
+          </motion.h2>
+          
+          <motion.p 
+            className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+            variants={itemVariants}
+          >
+            ¿Tienes una idea interesante? ¿Necesitas un desarrollador para tu proyecto? 
+            Estoy aquí para ayudarte a hacer realidad tus ideas.
+          </motion.p>
+        </motion.div>
+
+        <motion.div
+          className="grid lg:grid-cols-2 gap-12"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          {/* Contact Information */}
+          <motion.div variants={itemVariants} className="space-y-8">
+            <div>
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">Información de Contacto</h3>
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                Puedes contactarme directamente a través de mi correo electrónico o usar el formulario. 
+                También puedes encontrarme en mis redes sociales donde comparto contenido sobre desarrollo web y Matemáticas.
+              </p>
+            </div>
+
+            {/* Contact Details */}
+            <div className="space-y-6">
+              <div className="flex items-center gap-4 p-4 rounded-xl bg-blue-50 border border-blue-100">
+                <div className="w-12 h-12 rounded-xl bg-blue-500 flex items-center justify-center">
+                  <Mail className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <p className="font-medium text-gray-800">Email</p>
+                  <a href="mailto:smendowork@gmail.com" className="text-blue-600 hover:underline">
+                    smendowork@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 p-4 rounded-xl bg-purple-50 border border-purple-100">
+                <div className="w-12 h-12 rounded-xl bg-purple-500 flex items-center justify-center">
+                  <MapPin className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <p className="font-medium text-gray-800">Ubicación</p>
+                  <p className="text-gray-600">Disponible para proyectos en Bogotá y remotos</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 p-4 rounded-xl bg-green-50 border border-green-100">
+                <div className="w-12 h-12 rounded-xl bg-green-500 flex items-center justify-center">
+                  <Phone className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <p className="font-medium text-gray-800 mb-1">WhatsApp</p>
+                  <a
+                    href="https://wa.me/573108517957?text=Hola%2C%20vi%20tu%20portafolio%20y%20quiero%20contactarte"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-green-500 text-white rounded-full font-medium shadow hover:bg-green-600 hover:scale-105 transition-all duration-300"
+                  >
+                    <Phone className="w-4 h-4" />
+                    Enviar mensaje por WhatsApp
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Social Links */}
+            <div>
+              <h4 className="text-lg font-semibold text-gray-800 mb-4">Sígueme en redes sociales</h4>
+              <div className="flex gap-4">
+                {socialLinks.map((social) => (
+                  <motion.a
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center text-gray-600 transition-all duration-300 ${social.color}`}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <social.icon className="w-5 h-5" />
+                  </motion.a>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Contact Form */}
+          <motion.div variants={itemVariants}>
+            <form
+              onSubmit={handleSubmit}
+              className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 space-y-6"
+            >
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">Envíame un mensaje</h3>
+              
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Nombre completo
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                    placeholder="Tu nombre completo"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Correo electrónico
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                    placeholder="tunombre@email.com"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Asunto
+                  </label>
+                  <input
+                    type="text"
+                    name="subject"
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                    placeholder="¿En qué puedo ayudarte?"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Mensaje
+                  </label>
+                  <textarea
+                    name="message"
+                    required
+                    rows="5"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none"
+                    placeholder="Cuéntame sobre tu proyecto..."
+                  ></textarea>
+                </div>
+              </div>
+
+              <motion.button
+                type="submit"
+                disabled={loading}
+                className={`w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-medium transition-all duration-300 ${
+                  loading 
+                    ? 'bg-gray-400 cursor-not-allowed' 
+                    : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:shadow-lg hover:scale-105'
+                } text-white`}
+                whileHover={!loading ? { scale: 1.02 } : {}}
+                whileTap={!loading ? { scale: 0.98 } : {}}
+              >
+                {loading ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    Enviando...
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-5 h-5" />
+                    Enviar Mensaje
+                  </>
+                )}
+              </motion.button>
+
+              {/* Status Messages */}
+              <AnimatePresence>
+                {status === 'success' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="flex items-center gap-2 p-4 bg-green-50 border border-green-200 rounded-xl"
+                  >
+                    <CheckCircle className="w-5 h-5 text-green-600" />
+                    <p className="text-green-700 font-medium">
+                      ¡Mensaje enviado correctamente! Te responderé pronto.
+                    </p>
+                  </motion.div>
+                )}
+                {status === 'error' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="flex items-center gap-2 p-4 bg-red-50 border border-red-200 rounded-xl"
+                  >
+                    <AlertCircle className="w-5 h-5 text-red-600" />
+                    <p className="text-red-700 font-medium">
+                      Ocurrió un error al enviar. Intenta de nuevo o contáctame directamente.
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </form>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+export default Contact;
+
