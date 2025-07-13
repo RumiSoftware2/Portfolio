@@ -10,7 +10,7 @@ function DownloadCV() {
         className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300 text-lg"
       >
         <FileText className="w-6 h-6" />
-        Ver mi CV (PDF)
+        Ver mi hoja de vida  (PDF)
       </a>
     </div>
   );
