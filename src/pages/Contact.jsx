@@ -135,25 +135,15 @@ function Contact() {
             <div>
               <h3 className="text-2xl font-bold text-gray-800 mb-6">Información de Contacto</h3>
               <p className="text-gray-600 mb-8 leading-relaxed">
-                Puedes contactarme directamente a través de mi correo electrónico o usar el formulario. 
-                También puedes encontrarme en mis redes sociales donde comparto contenido sobre desarrollo web y Matemáticas.
+                Puedes contactarme directamente a través el formulario o 
+                también puedes encontrarme en mis redes sociales donde comparto contenido sobre desarrollo web y Matemáticas.
               </p>
             </div>
 
             {/* Contact Details */}
             <div className="space-y-6">
-              <div className="flex items-center gap-4 p-4 rounded-xl bg-blue-50 border border-blue-100">
-                <div className="w-12 h-12 rounded-xl bg-blue-500 flex items-center justify-center">
-                  <Mail className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <p className="font-medium text-gray-800">Email</p>
-                  <a href="mailto:smendowork@gmail.com" className="text-blue-600 hover:underline">
-                    smendowork@gmail.com
-                  </a>
-                </div>
-              </div>
-
+              {/* Email removed */}
+              {/* Ubicación se mantiene */}
               <div className="flex items-center gap-4 p-4 rounded-xl bg-purple-50 border border-purple-100">
                 <div className="w-12 h-12 rounded-xl bg-purple-500 flex items-center justify-center">
                   <MapPin className="w-6 h-6 text-white" />
@@ -163,24 +153,7 @@ function Contact() {
                   <p className="text-gray-600">Disponible para proyectos en Bogotá y remotos</p>
                 </div>
               </div>
-
-              <div className="flex items-center gap-4 p-4 rounded-xl bg-green-50 border border-green-100">
-                <div className="w-12 h-12 rounded-xl bg-green-500 flex items-center justify-center">
-                  <Phone className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <p className="font-medium text-gray-800 mb-1">WhatsApp</p>
-                  <a
-                    href="https://wa.me/573108517957?text=Hola%2C%20vi%20tu%20portafolio%20y%20quiero%20contactarte"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-green-500 text-white rounded-full font-medium shadow hover:bg-green-600 hover:scale-105 transition-all duration-300"
-                  >
-                    <Phone className="w-4 h-4" />
-                    Enviar mensaje por WhatsApp
-                  </a>
-                </div>
-              </div>
+              {/* WhatsApp button removed */}
             </div>
 
             {/* Social Links */}
@@ -193,11 +166,11 @@ function Contact() {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center text-gray-600 transition-all duration-300 ${social.color}`}
+                    className={`w-16 h-16 rounded-xl bg-gray-100 flex items-center justify-center text-gray-600 transition-all duration-300 ${social.color}`}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <social.icon className="w-5 h-5" />
+                    <social.icon className="w-8 h-8" />
                   </motion.a>
                 ))}
               </div>

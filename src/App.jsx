@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import FadeInWhenVisible from './components/FadeInWhenVisible';
 import BackToTop from './components/BackToTop';
 import { Code, Database, Globe, Zap } from 'lucide-react';
-import DownloadCV from './components/DownloadCV';
+// import DownloadCV from './components/DownloadCV'; // Remove import
 
 function App() {
   const containerVariants = {
@@ -115,9 +115,7 @@ function App() {
                   />
                 </div>
                 {/* CV Button */}
-                <div className="w-full flex justify-center">
-                  <DownloadCV />
-                </div>
+                {/* Eliminar <DownloadCV /> de cualquier parte del layout */}
               </motion.div>
             </motion.div>
 
