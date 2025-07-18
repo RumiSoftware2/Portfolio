@@ -46,7 +46,7 @@ function App() {
       <Navbar />
       <main className="pt-20">
         {/* HERO SECTION */}
-        <section className="relative overflow-hidden py-10 px-2 md:py-16 md:px-4">
+        <section id="inicio" className="relative overflow-hidden py-10 px-2 md:py-16 md:px-4">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/10 to-indigo-600/10"></div>
           <div className="absolute top-20 left-10 w-40 h-40 md:w-72 md:h-72 bg-blue-400/20 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-10 w-56 h-56 md:w-96 md:h-96 bg-purple-400/20 rounded-full blur-3xl"></div>

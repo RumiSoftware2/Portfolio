@@ -9,7 +9,7 @@ function Projects() {
       tecnologias: ["React", "Node.js", "MongoDB", "JWT", "Tailwind CSS"],
       imagen: "/projects/rumi.png",
       link: "https://github.com/RumiSoftware2/RUMI-educational-platform",
-      demo: "#",
+      demo: "https://rumieducation.vercel.app/",
       status: "ready",
       features: [
         "Autenticación segura con JWT",

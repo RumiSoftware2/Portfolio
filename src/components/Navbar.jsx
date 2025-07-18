@@ -22,16 +22,17 @@ function Navbar() {
   ];
 
   const scrollToSection = (sectionId) => {
-    console.log('Scrolling to:', sectionId); // Debug log
+    if (sectionId === 'inicio') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setOpen(false);
+      return;
+    }
     const element = document.getElementById(sectionId);
     if (element) {
-      console.log('Element found:', element); // Debug log
       element.scrollIntoView({ 
         behavior: 'smooth',
         block: 'start'
       });
-    } else {
-      console.log('Element not found for ID:', sectionId); // Debug log
     }
     setOpen(false);
   };
