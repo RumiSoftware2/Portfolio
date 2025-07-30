@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Play, Code, Database, Users, Shield, Zap } from 'lucide-react';
+import { ExternalLink, Github, Play, Code, Database, Users, Shield, Zap, Brain, TrendingUp } from 'lucide-react';
 
 function Projects() {
   const proyectos = [
     {
       titulo: "RUMI Personal",
-      descripcion: "Plataforma educativa para facilitar el aprendizaje autodidacta y la gestión de cursos en línea. Permite a estudiantes acceder a lecciones en video, realizar quizzes interactivos y hacer seguimiento de su progreso. Los docentes pueden crear y administrar cursos, agregar lecciones (videos de YouTube) y diseñar evaluaciones personalizadas.",
+      descripcion: "Plataforma educativa para facilitar el aprendizaje autodidacta y la gestión de cursos en línea. Permite a estudiantes acceder a lecciones en video, realizar quizzes interactivos y hacer seguimiento de su progreso.",
       tecnologias: ["React", "Node.js", "MongoDB", "JWT", "Tailwind CSS"],
       imagen: "/projects/rumi.png",
       link: "https://github.com/RumiSoftware2/RUMI-educational-platform",
@@ -20,19 +20,19 @@ function Projects() {
       ]
     },
     {
-      titulo: "RUMI Enterprise",
-      descripcion: "Solución integral de gestión educativa diseñada para instituciones, academias y empresas que requieren control avanzado sobre la formación de sus usuarios. Ofrece todas las funcionalidades de RUMI Personal, ampliadas con gestión de roles administrativos, paneles de control avanzados, reportes de desempeño, y control granular de acceso a contenidos.",
-      tecnologias: ["React", "Node.js", "MongoDB Atlas", "Microservicios", "Docker"],
-      imagen: "/projects/rumi-enterprise.png",
+      titulo: "RUMI Blackjack",
+      descripcion: "Juego educativo de Blackjack que combina entretenimiento con aprendizaje de matemáticas. Incluye análisis de datos en tiempo real, estadísticas de juego y algoritmos de inteligencia artificial para personalizar la experiencia educativa.",
+      tecnologias: ["React", "Data Science", "AI/ML", "Python", "Analytics"],
+      imagen: "/projects/rumi-blackjack.png",
       link: "https://github.com/RumiSoftware2",
-      demo: "#",
+      demo: "https://rumieducation.vercel.app/games/blackjack",
       status: "building",
       features: [
-        "Gestión de roles administrativos",
-        "Paneles de control avanzados",
-        "Reportes de desempeño",
-        "Control granular de acceso",
-        "Arquitectura escalable"
+        "Análisis de datos en tiempo real",
+        "Estadísticas de aprendizaje",
+        "Algoritmos de IA personalizados",
+        "Gamificación educativa",
+        "Dashboard de progreso"
       ]
     }
   ];
@@ -116,7 +116,7 @@ function Projects() {
               whileHover={{ y: -10 }}
             >
               {/* Project Image */}
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative h-48 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 dark:from-blue-600/10 dark:to-purple-600/10"></div>
                 <img
                   src={proyecto.imagen}
@@ -141,26 +141,26 @@ function Projects() {
               </div>
 
               {/* Project Content */}
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   {proyecto.titulo}
                 </h3>
                 
-                <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed text-sm">
                   {proyecto.descripcion}
                 </p>
 
                 {/* Technologies */}
-                <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 flex items-center gap-2">
-                    <Zap className="w-4 h-4" />
-                    Tecnologías Utilizadas
+                <div className="mb-4">
+                  <h4 className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
+                    <Zap className="w-3 h-3" />
+                    Tecnologías
                   </h4>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1">
                     {proyecto.tecnologias.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium"
+                        className="px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-xs font-medium"
                       >
                         {tech}
                       </span>
@@ -168,16 +168,20 @@ function Projects() {
                   </div>
                 </div>
 
-                {/* Features */}
-                <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 flex items-center gap-2">
-                    <Shield className="w-4 h-4" />
-                    Características Principales
+                {/* Features - Compact */}
+                <div className="mb-4">
+                  <h4 className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
+                    {proyecto.titulo.includes('Blackjack') ? (
+                      <Brain className="w-3 h-3" />
+                    ) : (
+                      <Shield className="w-3 h-3" />
+                    )}
+                    Características
                   </h4>
-                  <ul className="space-y-2">
-                    {proyecto.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-                        <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                  <ul className="space-y-1">
+                    {proyecto.features.slice(0, 3).map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400">
+                        <div className="w-1 h-1 bg-blue-500 rounded-full"></div>
                         {feature}
                       </li>
                     ))}
@@ -185,25 +189,36 @@ function Projects() {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex gap-3">
+                <div className="flex gap-2">
                   <a
                     href={proyecto.link}
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium hover:shadow-lg hover:scale-105 transition-all duration-300"
+                    className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium hover:shadow-lg hover:scale-105 transition-all duration-300 text-sm"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Github className="w-4 h-4" />
-                    Ver Código
+                    <Github className="w-3 h-3" />
+                    Código
                   </a>
                   {proyecto.status === 'ready' && (
                     <a
                       href={proyecto.demo}
-                      className="flex items-center justify-center gap-2 px-4 py-3 border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 rounded-lg font-medium hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white transition-all duration-300"
+                      className="flex items-center justify-center gap-2 px-3 py-2 border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 rounded-lg font-medium hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white transition-all duration-300 text-sm"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <ExternalLink className="w-4 h-4" />
+                      <ExternalLink className="w-3 h-3" />
                       Demo
+                    </a>
+                  )}
+                  {proyecto.status === 'building' && (
+                    <a
+                      href={proyecto.demo}
+                      className="flex items-center justify-center gap-2 px-3 py-2 border-2 border-yellow-600 dark:border-yellow-400 text-yellow-600 dark:text-yellow-400 rounded-lg font-medium hover:bg-yellow-600 hover:text-white dark:hover:bg-yellow-400 dark:hover:text-white transition-all duration-300 text-sm"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <TrendingUp className="w-3 h-3" />
+                      Preview
                     </a>
                   )}
                 </div>
