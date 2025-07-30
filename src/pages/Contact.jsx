@@ -82,11 +82,11 @@ function Contact() {
   };
 
   return (
-    <section id="contacto" className="py-20 bg-white relative overflow-hidden">
+    <section id="contacto" className="py-20 bg-white dark:bg-gray-900 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/30"></div>
-      <div className="absolute top-20 right-10 w-64 h-64 bg-blue-200/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-10 w-80 h-80 bg-purple-200/20 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/30 dark:from-blue-900/20 dark:via-transparent dark:to-purple-900/20"></div>
+      <div className="absolute top-20 right-10 w-64 h-64 bg-blue-200/20 rounded-full blur-3xl dark:bg-blue-600/10"></div>
+      <div className="absolute bottom-20 left-10 w-80 h-80 bg-purple-200/20 rounded-full blur-3xl dark:bg-purple-600/10"></div>
       
       <div className="relative container mx-auto px-4 max-w-6xl">
         <motion.div
@@ -97,7 +97,7 @@ function Contact() {
           viewport={{ once: true }}
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium mb-6"
             variants={itemVariants}
           >
             <Mail className="w-4 h-4" />
@@ -105,7 +105,7 @@ function Contact() {
           </motion.div>
           
           <motion.h2 
-            className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6"
+            className="text-4xl lg:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-6"
             variants={itemVariants}
           >
             Hablemos de tu
@@ -115,7 +115,7 @@ function Contact() {
           </motion.h2>
           
           <motion.p 
-            className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed"
             variants={itemVariants}
           >
             ¿Tienes una idea interesante? ¿Necesitas un desarrollador para tu proyecto? 
@@ -133,8 +133,8 @@ function Contact() {
           {/* Contact Information */}
           <motion.div variants={itemVariants} className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Información de Contacto</h3>
-              <p className="text-gray-600 mb-8 leading-relaxed">
+              <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6">Información de Contacto</h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
                 Puedes contactarme directamente a través el formulario o 
                 también puedes encontrarme en mis redes sociales donde comparto contenido sobre desarrollo web y Matemáticas.
               </p>
@@ -144,13 +144,13 @@ function Contact() {
             <div className="space-y-6">
               {/* Email removed */}
               {/* Ubicación se mantiene */}
-              <div className="flex items-center gap-4 p-4 rounded-xl bg-purple-50 border border-purple-100">
+              <div className="flex items-center gap-4 p-4 rounded-xl bg-purple-50 dark:bg-purple-900/20 border border-purple-100 dark:border-purple-800">
                 <div className="w-12 h-12 rounded-xl bg-purple-500 flex items-center justify-center">
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <p className="font-medium text-gray-800">Ubicación</p>
-                  <p className="text-gray-600">Disponible para proyectos en Bogotá y remotos</p>
+                  <p className="font-medium text-gray-800 dark:text-gray-200">Ubicación</p>
+                  <p className="text-gray-600 dark:text-gray-400">Disponible para proyectos en Bogotá y remotos</p>
                 </div>
               </div>
               {/* WhatsApp button removed */}
@@ -158,7 +158,7 @@ function Contact() {
 
             {/* Social Links */}
             <div>
-              <h4 className="text-lg font-semibold text-gray-800 mb-4">Sígueme en redes sociales</h4>
+              <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Sígueme en redes sociales</h4>
               <div className="flex gap-4">
                 {socialLinks.map((social) => (
                   <motion.a
@@ -166,7 +166,7 @@ function Contact() {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-16 h-16 rounded-xl bg-gray-100 flex items-center justify-center text-gray-600 transition-all duration-300 ${social.color}`}
+                    className={`w-16 h-16 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 transition-all duration-300 ${social.color}`}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -181,59 +181,59 @@ function Contact() {
           <motion.div variants={itemVariants}>
             <form
               onSubmit={handleSubmit}
-              className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 space-y-6"
+              className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 space-y-6"
             >
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Envíame un mensaje</h3>
+              <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6">Envíame un mensaje</h3>
               
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                     Nombre completo
                   </label>
                   <input
                     type="text"
                     name="name"
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400"
                     placeholder="Tu nombre completo"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                     Correo electrónico
                   </label>
                   <input
                     type="email"
                     name="email"
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400"
                     placeholder="tunombre@email.com"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                     Asunto
                   </label>
                   <input
                     type="text"
                     name="subject"
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400"
                     placeholder="¿En qué puedo ayudarte?"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                     Mensaje
                   </label>
                   <textarea
                     name="message"
                     required
                     rows="5"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400"
                     placeholder="Cuéntame sobre tu proyecto..."
                   ></textarea>
                 </div>
@@ -244,7 +244,7 @@ function Contact() {
                 disabled={loading}
                 className={`w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-medium transition-all duration-300 ${
                   loading 
-                    ? 'bg-gray-400 cursor-not-allowed' 
+                    ? 'bg-gray-400 dark:bg-gray-600 cursor-not-allowed' 
                     : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:shadow-lg hover:scale-105'
                 } text-white`}
                 whileHover={!loading ? { scale: 1.02 } : {}}
@@ -270,10 +270,10 @@ function Contact() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="flex items-center gap-2 p-4 bg-green-50 border border-green-200 rounded-xl"
+                    className="flex items-center gap-2 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl"
                   >
-                    <CheckCircle className="w-5 h-5 text-green-600" />
-                    <p className="text-green-700 font-medium">
+                    <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400" />
+                    <p className="text-green-700 dark:text-green-300 font-medium">
                       ¡Mensaje enviado correctamente! Te responderé pronto.
                     </p>
                   </motion.div>
@@ -283,10 +283,10 @@ function Contact() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="flex items-center gap-2 p-4 bg-red-50 border border-red-200 rounded-xl"
+                    className="flex items-center gap-2 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl"
                   >
-                    <AlertCircle className="w-5 h-5 text-red-600" />
-                    <p className="text-red-700 font-medium">
+                    <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400" />
+                    <p className="text-red-700 dark:text-red-300 font-medium">
                       Ocurrió un error al enviar. Intenta de nuevo o contáctame directamente.
                     </p>
                   </motion.div>

@@ -42,7 +42,7 @@ function Navbar() {
     <motion.nav
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-white/80 backdrop-blur-md shadow-lg' 
+          ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg' 
           : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
@@ -66,7 +66,7 @@ function Navbar() {
               <motion.button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="relative text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200"
+                className="relative text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors duration-200"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
@@ -84,7 +84,7 @@ function Navbar() {
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="md:hidden p-2 rounded-lg bg-white/20 backdrop-blur-sm z-50"
+            className="md:hidden p-2 rounded-lg bg-white/20 dark:bg-gray-800/20 backdrop-blur-sm z-50"
             onClick={() => {
               console.log('Menu button clicked, current state:', open); // Debug log
               setOpen(!open);
@@ -101,7 +101,7 @@ function Navbar() {
                   exit={{ rotate: 90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <X className="w-6 h-6 text-gray-700" />
+                  <X className="w-6 h-6 text-gray-700 dark:text-gray-300" />
                 </motion.div>
               ) : (
                 <motion.div
@@ -111,7 +111,7 @@ function Navbar() {
                   exit={{ rotate: -90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Menu className="w-6 h-6 text-gray-700" />
+                  <Menu className="w-6 h-6 text-gray-700 dark:text-gray-300" />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -128,7 +128,7 @@ function Navbar() {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-md rounded-lg mt-2 shadow-xl border border-gray-200">
+              <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-lg mt-2 shadow-xl border border-gray-200 dark:border-gray-700">
                 {navItems.map((item, index) => (
                   <motion.button
                     key={item.id}
@@ -136,7 +136,7 @@ function Navbar() {
                       console.log('Mobile menu item clicked:', item.id); // Debug log
                       scrollToSection(item.id);
                     }}
-                    className="block w-full text-left px-4 py-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 font-medium transition-all duration-200 active:bg-blue-100"
+                    className="block w-full text-left px-4 py-3 rounded-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-gray-800 font-medium transition-all duration-200 active:bg-blue-100 dark:active:bg-gray-700"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}

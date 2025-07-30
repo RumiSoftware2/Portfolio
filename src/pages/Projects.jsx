@@ -60,11 +60,11 @@ function Projects() {
   };
 
   return (
-    <section id="proyectos" className="py-20 bg-gray-50 relative overflow-hidden">
+    <section id="proyectos" className="py-20 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/30"></div>
-      <div className="absolute top-20 right-10 w-72 h-72 bg-blue-300/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-10 w-96 h-96 bg-purple-300/20 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/30 dark:from-blue-900/20 dark:via-transparent dark:to-purple-900/20"></div>
+      <div className="absolute top-20 right-10 w-72 h-72 bg-blue-300/20 rounded-full blur-3xl dark:bg-blue-600/10"></div>
+      <div className="absolute bottom-20 left-10 w-96 h-96 bg-purple-300/20 rounded-full blur-3xl dark:bg-purple-600/10"></div>
       
       <div className="relative container mx-auto px-4 max-w-6xl">
         <motion.div
@@ -75,7 +75,7 @@ function Projects() {
           viewport={{ once: true }}
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium mb-6"
             variants={itemVariants}
           >
             <Code className="w-4 h-4" />
@@ -83,7 +83,7 @@ function Projects() {
           </motion.div>
           
           <motion.h2 
-            className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6"
+            className="text-4xl lg:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-6"
             variants={itemVariants}
           >
             Proyectos
@@ -93,7 +93,7 @@ function Projects() {
           </motion.h2>
           
           <motion.p 
-            className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed"
             variants={itemVariants}
           >
             Aquí puedes ver algunos de mis proyectos más importantes, 
@@ -111,13 +111,13 @@ function Projects() {
           {proyectos.map((proyecto, index) => (
             <motion.div
               key={index}
-              className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100"
+              className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 dark:border-gray-700"
               variants={itemVariants}
               whileHover={{ y: -10 }}
             >
               {/* Project Image */}
               <div className="relative h-64 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 dark:from-blue-600/10 dark:to-purple-600/10"></div>
                 <img
                   src={proyecto.imagen}
                   alt={proyecto.titulo}
@@ -127,12 +127,12 @@ function Projects() {
                 {/* Status Badge */}
                 <div className="absolute top-4 right-4">
                   {proyecto.status === 'ready' ? (
-                    <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium flex items-center gap-1">
+                    <span className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm font-medium flex items-center gap-1">
                       <Play className="w-3 h-3" />
                       Listo
                     </span>
                   ) : (
-                    <span className="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-medium flex items-center gap-1">
+                    <span className="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded-full text-sm font-medium flex items-center gap-1">
                       <Code className="w-3 h-3" />
                       En Construcción
                     </span>
@@ -142,17 +142,17 @@ function Projects() {
 
               {/* Project Content */}
               <div className="p-8">
-                <h3 className="text-2xl font-bold text-gray-800 mb-3 group-hover:text-blue-600 transition-colors">
+                <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   {proyecto.titulo}
                 </h3>
                 
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
                   {proyecto.descripcion}
                 </p>
 
                 {/* Technologies */}
                 <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
+                  <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 flex items-center gap-2">
                     <Zap className="w-4 h-4" />
                     Tecnologías Utilizadas
                   </h4>
@@ -160,7 +160,7 @@ function Projects() {
                     {proyecto.tecnologias.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm font-medium"
+                        className="px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium"
                       >
                         {tech}
                       </span>
@@ -170,13 +170,13 @@ function Projects() {
 
                 {/* Features */}
                 <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
+                  <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 flex items-center gap-2">
                     <Shield className="w-4 h-4" />
                     Características Principales
                   </h4>
                   <ul className="space-y-2">
                     {proyecto.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center gap-2 text-sm text-gray-600">
+                      <li key={featureIndex} className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
                         <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
                         {feature}
                       </li>
@@ -198,7 +198,7 @@ function Projects() {
                   {proyecto.status === 'ready' && (
                     <a
                       href={proyecto.demo}
-                      className="flex items-center justify-center gap-2 px-4 py-3 border-2 border-blue-600 text-blue-600 rounded-lg font-medium hover:bg-blue-600 hover:text-white transition-all duration-300"
+                      className="flex items-center justify-center gap-2 px-4 py-3 border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 rounded-lg font-medium hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white transition-all duration-300"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -220,7 +220,7 @@ function Projects() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <p className="text-gray-600 mb-6">
+          <p className="text-gray-600 dark:text-gray-400 mb-6">
             ¿Te interesa alguno de estos proyectos o quieres colaborar en algo nuevo?
           </p>
           <a
