@@ -5,6 +5,7 @@ import fotoPerfil from './assets/foto-perfil.png';
 import { motion } from 'framer-motion';
 import { Github, Youtube, Linkedin } from 'lucide-react';
 import BackToTop from './components/BackToTop';
+import ThemeToggle from './components/ThemeToggle';
 
 const socialLinks = [
   {
@@ -136,6 +137,7 @@ function App() {
         </motion.div>
       </main>
       <BackToTop />
+      <ThemeToggle />
     </div>
   );
 }

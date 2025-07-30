@@ -60,11 +60,11 @@ function About() {
   };
 
   return (
-    <section id="sobre-mi" className="py-20 bg-white relative overflow-hidden">
+    <section id="sobre-mi" className="py-20 bg-white dark:bg-gray-900 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-50/50 via-transparent to-purple-50/50"></div>
-      <div className="absolute top-20 right-10 w-64 h-64 bg-blue-200/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-10 w-80 h-80 bg-purple-200/20 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-50/50 via-transparent to-purple-50/50 dark:from-blue-950/30 dark:to-purple-950/30"></div>
+      <div className="absolute top-20 right-10 w-64 h-64 bg-blue-200/20 dark:bg-blue-600/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 left-10 w-80 h-80 bg-purple-200/20 dark:bg-purple-600/10 rounded-full blur-3xl"></div>
       
       <div className="relative container mx-auto px-4 max-w-6xl">
         <motion.div
@@ -83,7 +83,7 @@ function About() {
           </motion.div>
           
           <motion.h2 
-            className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6"
+            className="text-4xl lg:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-6"
             variants={itemVariants}
           >
             Pasión por el
@@ -93,7 +93,7 @@ function About() {
           </motion.h2>
           
           <motion.p 
-            className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed"
             variants={itemVariants}
           >
             Soy estudiante de <span className="font-semibold text-blue-600"> Tecnólogo Análisis y Desarrollo de Software (SENA)</span> y de <span className="font-semibold text-purple-600">Licenciatura en Matemáticas (Universidad Pedagógica Nacional)</span>. Me apasiona el desarrollo web, el razonamiento matemático y la ciencia de datos.
@@ -111,15 +111,15 @@ function About() {
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
-              className="group text-center p-6 rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+              className="group text-center p-6 rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700"
               variants={itemVariants}
               whileHover={{ y: -5 }}
             >
               <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <feature.icon className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">{feature.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+              <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-2">{feature.title}</h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{feature.description}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -134,7 +134,7 @@ function About() {
         >
           {/* Skills Content */}
           <motion.div variants={itemVariants}>
-            <h3 className="text-3xl font-bold text-gray-800 mb-6">Mis Habilidades</h3>
+            <h3 className="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-6">Mis Habilidades</h3>
             <div className="space-y-6">
               {skills.map((skill, index) => (
                 <motion.div
@@ -146,10 +146,10 @@ function About() {
                   viewport={{ once: true }}
                 >
                   <div className="flex justify-between items-center">
-                    <span className="font-medium text-gray-700">{skill.name}</span>
-                    <span className="text-sm text-gray-500">{skill.level}%</span>
+                    <span className="font-medium text-gray-700 dark:text-gray-200">{skill.name}</span>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">{skill.level}%</span>
                   </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
+                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                     <motion.div
                       className={`h-2 rounded-full bg-gradient-to-r ${skill.color}`}
                       initial={{ width: 0 }}
@@ -176,7 +176,7 @@ function About() {
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
-                className="text-center p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-100"
+                className="text-center p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20 border border-blue-100 dark:border-blue-700"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1 }}
@@ -186,8 +186,8 @@ function About() {
                 <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
                   <stat.icon className="w-6 h-6 text-white" />
                 </div>
-                <div className="text-2xl font-bold text-gray-800 mb-1">{stat.number}</div>
-                <div className="text-sm text-gray-600">{stat.label}</div>
+                <div className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-1">{stat.number}</div>
+                <div className="text-sm text-gray-600 dark:text-gray-300">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
