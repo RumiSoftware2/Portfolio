@@ -86,7 +86,7 @@ function App() {
                 variants={heroVariants}
                 custom={2.4}
               >
-                Desarrollador junior apasionado por crear experiencias web excepcionales. Especializado en React, Node.js y tecnologías modernas. Estudiante de Análisis y Desarrollo de Software (SENA) y Licenciatura en Matemáticas (Universidad Pedagógica Nacional).
+                Estudiante de Licenciatura en Matemáticas en la Universidad Pedagógica Nacional, apasionado por la modelación matemática y la creación de experiencias web excepcionales. También estudiante de Análisis y Desarrollo de Software en el SENA.
               </motion.p>
               {/* Redes sociales grandes */}
               <motion.div
