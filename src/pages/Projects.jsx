@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Play, Code, Database, Users, Shield, Zap, Brain, TrendingUp } from 'lucide-react';
+import { ExternalLink, Github, Play, Code, Users, Shield, Zap } from 'lucide-react';
 
 function Projects() {
   const proyectos = [
@@ -20,19 +20,50 @@ function Projects() {
       ]
     },
     {
-      titulo: "RUMI Blackjack",
-      descripcion: "Juego educativo de Blackjack que combina entretenimiento con aprendizaje de matemáticas. Incluye análisis de datos en tiempo real, estadísticas de juego y algoritmos de inteligencia artificial para personalizar la experiencia educativa.",
-      tecnologias: ["React", "Data Science", "AI/ML", "Python", "Analytics"],
-      imagen: "/projects/rumi-blackjack.png",
-      link: "https://github.com/RumiSoftware2",
-      demo: "https://rumieducation.vercel.app/games/blackjack",
+      titulo: "Lila - Laboratorio de Álgebra Lineal",
+      descripcion: "Interfaz educativa que combina animaciones realizadas en Unity con frontend en React. Nueva sección dentro de Rumi; desarrollo colaborativo desde Linux con Git Actions para simular y practicar trabajo en equipo.",
+      tecnologias: ["React", "Unity", "Git Actions", "Animaciones 3D"],
+      imagen: "/projects/lila.png",
+      
+      link: "https://github.com/smendozawork314-arch/lila-react",
+      demo: "https://rumieducation.vercel.app/lila",
       status: "building",
       features: [
-        "Análisis de datos en tiempo real",
-        "Estadísticas de aprendizaje",
-        "Algoritmos de IA personalizados",
-        "Gamificación educativa",
-        "Dashboard de progreso"
+        "Animaciones interactivas con Unity",
+        "Frontend React integrado",
+        "Git Actions para CI/CD y trabajo en equipo",
+        "Laboratorio de álgebra lineal"
+      ]
+    },
+    {
+      titulo: "Wizard Studios Academy - E-commerce",
+      descripcion: "E-commerce para vender plugins, cursos, clases y servicios de Wizard Studios Academy. Frontend con React y Tailwind; backend independiente como microservicio (recomendación: Node.js + PostgreSQL o FastAPI + PostgreSQL para integración con el asistente IA en Python).",
+      tecnologias: ["React", "Tailwind CSS", "Microservicios", "Backend por definir"],
+      imagen: "/projects/wizard.png",
+      link: "#",
+      demo: "https://wizard-studios-academy.vercel.app",
+      status: "building",
+      features: [
+        "Venta de plugins, cursos y clases",
+        "Frontend React + Tailwind",
+        "Backend microservicio (Node.js o FastAPI recomendado)",
+        "Escalable para múltiples servicios"
+      ]
+    },
+    {
+      titulo: "Asistente IA (Python)",
+      descripcion: "Microservicio de asistente con IA desarrollado en Python. Pensado para integrarse con el e-commerce de Wizard Studios Academy y con Lila (laboratorio de álgebra lineal) para soporte y experiencia educativa.",
+      tecnologias: ["Python", "IA/ML", "Microservicios", "APIs"],
+      imagen: "/projects/zeusIA.png",
+      
+      link: "#",
+      demo: null,
+      status: "building",
+      features: [
+        "Microservicio en Python",
+        "Integración con e-commerce y Lila",
+        "Soporte y experiencia educativa",
+        "APIs para múltiples clientes"
       ]
     }
   ];
@@ -116,23 +147,35 @@ function Projects() {
               whileHover={{ y: -10 }}
             >
               {/* Project Image */}
-              <div className="relative h-48 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 dark:from-blue-600/10 dark:to-purple-600/10"></div>
-                <img
-                  src={proyecto.imagen}
-                  alt={proyecto.titulo}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                
+              <div className={`relative overflow-hidden ${proyecto.imagenContain ? 'h-52 py-5 px-4 flex items-center justify-center bg-gradient-to-b from-slate-100 to-slate-200/80 dark:from-slate-800 dark:to-slate-900/90' : 'h-48'}`}>
+                {!proyecto.imagenContain && (
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 dark:from-blue-600/10 dark:to-purple-600/10" />
+                )}
+                {proyecto.imagenContain ? (
+                  <div className="relative w-full h-full flex items-center justify-center rounded-xl bg-white/80 dark:bg-slate-800/80 shadow-inner border border-slate-200/80 dark:border-slate-600/50 overflow-hidden">
+                    <img
+                      src={proyecto.imagen}
+                      alt={proyecto.titulo}
+                      className="max-w-full max-h-full w-auto h-auto object-contain object-center transition-transform duration-500 group-hover:scale-[1.02]"
+                    />
+                  </div>
+                ) : (
+                  <img
+                    src={proyecto.imagen}
+                    alt={proyecto.titulo}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                )}
+
                 {/* Status Badge */}
-                <div className="absolute top-4 right-4">
+                <div className="absolute top-3 right-3">
                   {proyecto.status === 'ready' ? (
-                    <span className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm font-medium flex items-center gap-1">
+                    <span className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm font-medium flex items-center gap-1 shadow-sm">
                       <Play className="w-3 h-3" />
                       Listo
                     </span>
                   ) : (
-                    <span className="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded-full text-sm font-medium flex items-center gap-1">
+                    <span className="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded-full text-sm font-medium flex items-center gap-1 shadow-sm">
                       <Code className="w-3 h-3" />
                       En Construcción
                     </span>
@@ -171,11 +214,7 @@ function Projects() {
                 {/* Features - Compact */}
                 <div className="mb-4">
                   <h4 className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
-                    {proyecto.titulo.includes('Blackjack') ? (
-                      <Brain className="w-3 h-3" />
-                    ) : (
-                      <Shield className="w-3 h-3" />
-                    )}
+                    <Shield className="w-3 h-3" />
                     Características
                   </h4>
                   <ul className="space-y-1">
@@ -210,15 +249,15 @@ function Projects() {
                       Demo
                     </a>
                   )}
-                  {proyecto.status === 'building' && (
+                  {proyecto.status === 'building' && proyecto.demo && (
                     <a
                       href={proyecto.demo}
                       className="flex items-center justify-center gap-2 px-3 py-2 border-2 border-yellow-600 dark:border-yellow-400 text-yellow-600 dark:text-yellow-400 rounded-lg font-medium hover:bg-yellow-600 hover:text-white dark:hover:bg-yellow-400 dark:hover:text-white transition-all duration-300 text-sm"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <TrendingUp className="w-3 h-3" />
-                      Preview
+                      <ExternalLink className="w-3 h-3" />
+                      Demo (en construcción)
                     </a>
                   )}
                 </div>
