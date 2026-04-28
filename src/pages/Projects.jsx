@@ -60,8 +60,8 @@ function Projects() {
       tecnologias: ["React", "Vibe Coding", "Git Actions", "Node", "Python","Javascript","Math"],
       imagen: "/projects/logoproyectos.png",
       
-      link: "https://github.com/smendozawork314-arch/lila-react",
-      demo: "https://rumieducation.vercel.app/lila",
+      link: "https://github.com/RumiSoftware2/galeria-miniproyectos",
+      demo: "https://galeria-miniproyectos.vercel.app/",
       status: "building",
       features: [
         "Microservicio en Python",
