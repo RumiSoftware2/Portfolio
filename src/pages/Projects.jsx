@@ -5,7 +5,7 @@ function Projects() {
   const proyectos = [
     {
       titulo: "RUMI Personal",
-      descripcion: "Plataforma educativa para facilitar el aprendizaje autodidacta y la gestión de cursos en línea. Permite a estudiantes acceder a lecciones en video, realizar quizzes interactivos y hacer seguimiento de su progreso.",
+      descripcion: "Plataforma educativa para facilitar el aprendizaje autodidacta y la gestión de cursos en línea desarrollada como proyecto productivo para Tecnólogo en análisis y desarrollo de software del SENA. Permite a estudiantes acceder a lecciones en video, realizar quizzes interactivos y hacer seguimiento de su progreso.",
       tecnologias: ["React", "Node.js", "MongoDB", "JWT", "Tailwind CSS"],
       imagen: "/projects/rumi.png",
       link: "https://github.com/RumiSoftware2/RUMI-educational-platform",
@@ -14,25 +14,29 @@ function Projects() {
       features: [
         "Autenticación segura con JWT",
         "Control de roles (estudiante/docente)",
+        "Pagos integrados (Wompi)",
         "Gestión de cursos y lecciones",
         "Quizzes interactivos",
         "Seguimiento de progreso"
+        
+        
       ]
     },
     {
-      titulo: "Lila - Laboratorio de Álgebra Lineal",
-      descripcion: "Interfaz educativa que combina animaciones realizadas en Unity con frontend en React. Nueva sección dentro de Rumi; desarrollo colaborativo desde Linux con Git Actions para simular y practicar trabajo en equipo.",
-      tecnologias: ["React", "Unity", "Git Actions", "Animaciones 3D"],
-      imagen: "/projects/lila.png",
+      titulo: "Cálculo de N-males",
+      descripcion: "Aplicación web de cálculo de números n-males desarrollada en Python para la monitoria de Sistemas Númericos Universidad Pedagogica Nacional. Permite operar en cualquier base y simula procesos matemáticos con KaTeX para visualización paso a paso. Integrada con backend en FastAPI, NumPy y SymPy, y frontend en React con Framer Motion, destacando aprendizaje matemático.",
+      tecnologias: ["Python", "IA/ML", "Microservicios", "APIs"],
+      imagen: "/projects/nmal2.png",
       
-      link: "https://github.com/smendozawork314-arch/lila-react",
-      demo: "https://rumieducation.vercel.app/lila",
-      status: "building",
+      link: "https://github.com/RumiSoftware2/nmal_fraccion",
+      demo: "https://nmal-fraccion.vercel.app/",
+      status: "ready",
       features: [
-        "Animaciones interactivas con Unity",
-        "Frontend React integrado",
-        "Git Actions para CI/CD y trabajo en equipo",
-        "Laboratorio de álgebra lineal"
+        "Frontend con React y Framer Motion para visualización interactiva",
+        "Simulación de procesos matemáticos con KaTeX",
+        "Integración con FastAPI (APIs, lógica, endpoints) ",
+        "Soporte y experiencia educativa",
+        "Microservicio en Python"
       ]
     },
     {
@@ -51,21 +55,23 @@ function Projects() {
       ]
     },
     {
-      titulo: "Asistente IA (Python)",
-      descripcion: "Microservicio de asistente con IA desarrollado en Python. Pensado para integrarse con el e-commerce de Wizard Studios Academy y con Lila (laboratorio de álgebra lineal) para soporte y experiencia educativa.",
-      tecnologias: ["Python", "IA/ML", "Microservicios", "APIs"],
-      imagen: "/projects/zeusIA.png",
+      titulo: "Galeria de microproyectos",
+      descripcion: "Explora una colección de proyectos de desarrollo de software presentados de forma interactiva. Cada tarjeta resume el objetivo, las tecnologías utilizadas y las habilidades aplicadas, permitiendo acceder rápidamente a más detalles de cada implementación.",
+      tecnologias: ["React", "Vibe Coding", "Git Actions", "Node", "Python","Javascript","Math"],
+      imagen: "/projects/logoproyectos.png",
       
-      link: "#",
-      demo: null,
+      link: "https://github.com/smendozawork314-arch/lila-react",
+      demo: "https://rumieducation.vercel.app/lila",
       status: "building",
       features: [
         "Microservicio en Python",
-        "Integración con e-commerce y Lila",
-        "Soporte y experiencia educativa",
-        "APIs para múltiples clientes"
+        "Frontend React integrado",
+        "Git Actions para CI/CD y trabajo en equipo",
+        "Laboratorio de álgebra lineal"
       ]
     }
+    
+    
   ];
 
   const containerVariants = {

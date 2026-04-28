@@ -86,7 +86,7 @@ function App() {
                 variants={heroVariants}
                 custom={2.4}
               >
-                Estudiante de Licenciatura en Matemáticas en la Universidad Pedagógica Nacional, apasionado por la modelación matemática y la creación de experiencias web excepcionales. También estudiante de Análisis y Desarrollo de Software en el SENA.
+                Estudiante de Licenciatura en Matemáticas en la Universidad Pedagógica Nacional y estudiante de Análisis y Desarrollo de Software en el SENA, apasionado por la modelación matemática y la creación de experiencias web excepcionales.
               </motion.p>
               {/* Redes sociales grandes */}
               <motion.div
