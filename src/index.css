@@ -1,6 +1,44 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
+:root {
+  --bg-page: #F0F4FF;
+  --bg-page-mid: #EEF2FF;
+  --bg-section: #F8FAFC;
+  --bg-section-alt: #F1F5F9;
+  --bg-card: #FFFFFF;
+  --border-subtle: #E2E8F0;
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  --primary: #3B82F6;
+  --cyan: #06B6D4;
+  --purple: #8B5CF6;
+  --indigo: #6366F1;
+  --accent-glow: #22D3EE;
+  --accent-highlight: #A855F7;
+  --accent-data: #14B8A6;
+}
+
+@theme {
+  --color-surface-page: var(--bg-page);
+  --color-surface-page-mid: var(--bg-page-mid);
+  --color-surface-section: var(--bg-section);
+  --color-surface-section-alt: var(--bg-section-alt);
+  --color-surface-card: var(--bg-card);
+  --color-border-subtle: var(--border-subtle);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-primary: var(--primary);
+  --color-cyan: var(--cyan);
+  --color-purple: var(--purple);
+  --color-indigo: var(--indigo);
+  --color-accent-glow: var(--accent-glow);
+  --color-accent-highlight: var(--accent-highlight);
+  --color-accent-data: var(--accent-data);
+}
+
 /* Global Styles */
 html {
   scroll-behavior: smooth;

@@ -1,4 +1,5 @@
 import Navbar from './components/Navbar';
+import Experience from './pages/Experience';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import fotoPerfil from './assets/foto-perfil.png';
@@ -86,7 +87,7 @@ function App() {
                 variants={heroVariants}
                 custom={2.4}
               >
-                Estudiante de Licenciatura en Matemáticas en la Universidad Pedagógica Nacional y estudiante de Análisis y Desarrollo de Software en el SENA, apasionado por la modelación matemática y la creación de experiencias web excepcionales.
+                Estudiante de Licenciatura en Matemáticas en la Universidad Pedagógica Nacional y estudiante del Tecnólogo en Análisis y Desarrollo de Software en el SENA,Colombia, apasionado por la modelación matemática, ciencia de datos y la creación de experiencias web excepcionales con python y React.
               </motion.p>
               {/* Redes sociales grandes */}
               <motion.div
@@ -115,6 +116,16 @@ function App() {
             </motion.div>
           </div>
         </section>
+
+        {/* EXPERIENCIA */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.01 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+        >
+          <Experience />
+        </motion.div>
 
         {/* PROYECTOS */}
         <motion.div

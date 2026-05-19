@@ -17,6 +17,7 @@ function Navbar() {
 
   const navItems = [
     { id: 'inicio', label: 'Inicio' },
+    { id: 'experiencia', label: 'Experiencia' },
     { id: 'proyectos', label: 'Proyectos' },
     { id: 'contacto', label: 'Contacto' }
   ];
