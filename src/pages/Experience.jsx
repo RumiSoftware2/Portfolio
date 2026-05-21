@@ -117,7 +117,7 @@ function Experience() {
             className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
             variants={itemVariants}
           >
-            Tecnologías que domino y utilizo en mis proyectos, desde frontend hasta data science.
+            Tecnologías que utilizo en mis proyectos, desde frontend hasta data science.
           </motion.p>
         </motion.div>
 

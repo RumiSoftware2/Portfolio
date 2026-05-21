@@ -5,7 +5,7 @@ export const skills = [
   { id: 'sql', name: 'SQL', weight: 'xl', icon: 'mysql' },
   { id: 'colab', name: 'Google Colab', weight: 'xl', icon: 'googlecolab' },
   { id: 'react', name: 'React', weight: 'xl', icon: 'react' },
-  
+  { id: 'java', name: 'Java', weight: 'xl', icon: 'java' },
   // MD - Nivel avanzado
   { id: 'javascript', name: 'JavaScript', weight: 'md', icon: 'javascript' },
   { id: 'nodejs', name: 'Node.js', weight: 'md', icon: 'nodedotjs' },

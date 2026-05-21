@@ -27,7 +27,7 @@ function Projects() {
       descripcion: "Aplicación web de cálculo de números n-males desarrollada en Python para la monitoria de Sistemas Númericos Universidad Pedagogica Nacional. Permite operar en cualquier base y simula procesos matemáticos con KaTeX para visualización paso a paso. Integrada con backend en FastAPI, NumPy y SymPy, y frontend en React con Framer Motion, destacando aprendizaje matemático.",
       tecnologias: ["Python", "IA/ML", "Microservicios", "APIs"],
       imagen: "/projects/nmal2.png",
-      
+       
       link: "https://github.com/RumiSoftware2/nmal_fraccion",
       demo: "https://nmal-fraccion.vercel.app/",
       status: "ready",
