@@ -87,7 +87,7 @@ function App() {
                 variants={heroVariants}
                 custom={2.4}
               >
-                Estudiante de Licenciatura en Matemáticas en la Universidad Pedagógica Nacional y estudiante del Tecnólogo en Análisis y Desarrollo de Software en el SENA,Colombia, apasionado por la modelación matemática, ciencia de datos y la creación de experiencias web excepcionales con python y React.
+                Estudiante de Licenciatura en Matemáticas en la Universidad Pedagógica Nacional y Tecnólogo en Análisis y Desarrollo de Software en el SENA,Colombia, apasionado por la modelación matemática, ciencia de datos y la creación de experiencias web excepcionales con python y React.
               </motion.p>
               {/* Redes sociales grandes */}
               <motion.div
