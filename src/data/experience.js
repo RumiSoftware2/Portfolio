@@ -25,6 +25,12 @@ export const experienceItems = [
     description: 'Apoyo en tutorías de Sistemas Numéricos y desarrollo de herramientas didácticas interactivas(n-males).',
   },
   {
+    id: 'ingenieria-sistemas-area-andina',
+    period: '2026',
+    title: 'Ingeniería de Sistemas — Fundación Universitaria Área Andina',
+    description: 'Formación en Ingeniería de Sistemas con énfasis en desarrollo de software, bases de datos y arquitectura de sistemas.',
+  },
+  {
     id: 'proyecto-datascience',
     period: '2026',
     title: 'Data Science & Analytics',
