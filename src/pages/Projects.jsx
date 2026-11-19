@@ -40,18 +40,17 @@ function Projects() {
       ]
     },
     {
-      titulo: "Wizard Studios Academy - E-commerce",
-      descripcion: "E-commerce para vender plugins, cursos, clases y servicios de Wizard Studios Academy. Frontend con React y Tailwind; backend independiente como microservicio (recomendación: Node.js + PostgreSQL o FastAPI + PostgreSQL para integración con el asistente IA en Python).",
-      tecnologias: ["React", "Tailwind CSS", "Microservicios", "Backend por definir"],
-      imagen: "/projects/wizard.png",
-      link: "https://github.com/RumiSoftware2/wizard-frontend",
-      demo: "https://wizard-frontend-ten.vercel.app/",
-      status: "building",
+      titulo: "Tutor IA",
+      descripcion: "Plataforma de tutoría con inteligencia artificial. El frontend está desplegado en Vercel y el backend en Render; al estar inactivo, el servidor puede tardar en despertar al primer uso.",
+      tecnologias: ["Inteligencia Artificial", "Frontend en Vercel", "Backend en Render"],
+      imagen: "/projects/zeusIA.png",
+      link: "https://github.com/RumiSoftware2/tutorIA",
+      demo: "https://tutor-ia-sand.vercel.app/",
+      status: "ready",
       features: [
-        "Venta de plugins, cursos y clases",
-        "Frontend React + Tailwind",
-        "Backend microservicio (Node.js o FastAPI recomendado)",
-        "Escalable para múltiples servicios"
+        "Tutoría con inteligencia artificial",
+        "Frontend desplegado en Vercel",
+        "Backend desplegado en Render"
       ]
     },
     {
