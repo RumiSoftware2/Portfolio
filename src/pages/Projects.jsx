@@ -23,23 +23,6 @@ function Projects() {
       ]
     },
     {
-      titulo: "Cálculo de N-males",
-      descripcion: "Aplicación web de cálculo de números n-males desarrollada en Python para la monitoria de Sistemas Númericos Universidad Pedagogica Nacional. Permite operar en cualquier base y simula procesos matemáticos con KaTeX para visualización paso a paso. Integrada con backend en FastAPI, NumPy y SymPy, y frontend en React con Framer Motion, destacando aprendizaje matemático.",
-      tecnologias: ["Python", "IA/ML", "Microservicios", "APIs"],
-      imagen: "/projects/nmal2.png",
-       
-      link: "https://github.com/RumiSoftware2/nmal_fraccion",
-      demo: "https://nmal-fraccion.vercel.app/",
-      status: "ready",
-      features: [
-        "Frontend con React y Framer Motion para visualización interactiva",
-        "Simulación de procesos matemáticos con KaTeX",
-        "Integración con FastAPI (APIs, lógica, endpoints) ",
-        "Soporte y experiencia educativa",
-        "Microservicio en Python"
-      ]
-    },
-    {
       titulo: "Tutor IA",
       descripcion: "Plataforma de tutoría con inteligencia artificial. El frontend está desplegado en Vercel y el backend en Render; al estar inactivo, el servidor puede tardar en despertar al primer uso.",
       tecnologias: ["Inteligencia Artificial", "Frontend en Vercel", "Backend en Render"],
@@ -54,6 +37,22 @@ function Projects() {
       ]
     },
     {
+      titulo: "Cálculo de N-males",
+      descripcion: "Aplicación web de cálculo de números n-males desarrollada en Python para la monitoria de Sistemas Númericos Universidad Pedagogica Nacional. Permite operar en cualquier base y simula procesos matemáticos con KaTeX para visualización paso a paso. Integrada con backend en FastAPI, NumPy y SymPy, y frontend en React con Framer Motion, destacando aprendizaje matemático.",
+      tecnologias: ["Python", "IA/ML", "Microservicios", "APIs"],
+      imagen: "/projects/nmal2.png",
+      link: "https://github.com/RumiSoftware2/nmal_fraccion",
+      demo: "https://nmal-fraccion.vercel.app/",
+      status: "ready",
+      features: [
+        "Frontend con React y Framer Motion para visualización interactiva",
+        "Simulación de procesos matemáticos con KaTeX",
+        "Integración con FastAPI (APIs, lógica, endpoints) ",
+        "Soporte y experiencia educativa",
+        "Microservicio en Python"
+      ]
+    },
+    {
       titulo: "Galeria de microproyectos",
       descripcion: "Explora una colección de proyectos de desarrollo de software presentados de forma interactiva. Cada tarjeta resume el objetivo, las tecnologías utilizadas y las habilidades aplicadas, permitiendo acceder rápidamente a más detalles de cada implementación.",
       tecnologias: ["React", "Vibe Coding", "Git Actions", "Node", "Python","Javascript","Math"],
@@ -61,7 +60,7 @@ function Projects() {
       
       link: "https://github.com/RumiSoftware2/galeria-miniproyectos",
       demo: "https://galeria-miniproyectos.vercel.app/",
-      status: "building",
+      status: "ready",
       features: [
         "Microservicio en Python",
         "Frontend React integrado",
@@ -96,15 +95,15 @@ function Projects() {
   };
 
   return (
-    <section id="proyectos" className="py-20 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
+    <section id="proyectos" className="py-12 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/30 dark:from-blue-900/20 dark:via-transparent dark:to-purple-900/20"></div>
       <div className="absolute top-20 right-10 w-72 h-72 bg-blue-300/20 rounded-full blur-3xl dark:bg-blue-600/10"></div>
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-purple-300/20 rounded-full blur-3xl dark:bg-purple-600/10"></div>
       
-      <div className="relative container mx-auto px-4 max-w-6xl">
+      <div className="relative container mx-auto px-4 max-w-7xl">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -119,7 +118,7 @@ function Projects() {
           </motion.div>
           
           <motion.h2 
-            className="text-4xl lg:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-6"
+            className="text-3xl lg:text-4xl font-bold text-gray-800 dark:text-gray-100 mb-4"
             variants={itemVariants}
           >
             Proyectos
@@ -129,7 +128,7 @@ function Projects() {
           </motion.h2>
           
           <motion.p 
-            className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed"
+            className="text-base text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed"
             variants={itemVariants}
           >
             Aquí puedes ver algunos de mis proyectos más importantes, 
@@ -138,21 +137,21 @@ function Projects() {
         </motion.div>
 
         <motion.div
-          className="grid lg:grid-cols-2 gap-8"
+          className="grid md:grid-cols-2 xl:grid-cols-4 gap-5"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {proyectos.map((proyecto, index) => (
+          {proyectos.map((proyecto) => (
             <motion.div
-              key={index}
+              key={proyecto.titulo}
               className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 dark:border-gray-700"
               variants={itemVariants}
               whileHover={{ y: -10 }}
             >
               {/* Project Image */}
-              <div className={`relative overflow-hidden ${proyecto.imagenContain ? 'h-52 py-5 px-4 flex items-center justify-center bg-gradient-to-b from-slate-100 to-slate-200/80 dark:from-slate-800 dark:to-slate-900/90' : 'h-48'}`}>
+              <div className={`relative overflow-hidden ${proyecto.imagenContain ? 'h-40 py-4 px-3 flex items-center justify-center bg-gradient-to-b from-slate-100 to-slate-200/80 dark:from-slate-800 dark:to-slate-900/90' : 'h-36'}`}>
                 {!proyecto.imagenContain && (
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 dark:from-blue-600/10 dark:to-purple-600/10" />
                 )}
@@ -189,18 +188,18 @@ function Projects() {
               </div>
 
               {/* Project Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              <div className="p-4">
+                <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   {proyecto.titulo}
                 </h3>
                 
-                <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed text-sm">
+                <p className="text-gray-600 dark:text-gray-400 mb-3 leading-relaxed text-sm line-clamp-3">
                   {proyecto.descripcion}
                 </p>
 
                 {/* Technologies */}
-                <div className="mb-4">
-                  <h4 className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
+                <div className="mb-3">
+                  <h4 className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1 flex items-center gap-2">
                     <Zap className="w-3 h-3" />
                     Tecnologías
                   </h4>
@@ -217,13 +216,13 @@ function Projects() {
                 </div>
 
                 {/* Features - Compact */}
-                <div className="mb-4">
-                  <h4 className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
+                <div className="mb-3">
+                  <h4 className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1 flex items-center gap-2">
                     <Shield className="w-3 h-3" />
                     Características
                   </h4>
                   <ul className="space-y-1">
-                    {proyecto.features.slice(0, 3).map((feature, featureIndex) => (
+                    {proyecto.features.slice(0, 2).map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400">
                         <div className="w-1 h-1 bg-blue-500 rounded-full"></div>
                         {feature}
@@ -262,7 +261,7 @@ function Projects() {
                       rel="noopener noreferrer"
                     >
                       <ExternalLink className="w-3 h-3" />
-                      Demo (en construcción)
+                      Demo
                     </a>
                   )}
                 </div>
@@ -273,7 +272,7 @@ function Projects() {
 
         {/* Call to Action */}
         <motion.div
-          className="text-center mt-16"
+          className="text-center mt-10"
           variants={itemVariants}
           initial="hidden"
           whileInView="visible"
