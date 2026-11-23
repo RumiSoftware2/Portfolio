@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
 
 function ExperienceCarousel({ items }) {
   const [[page, direction], setPage] = useState([0, 0]);
   const [reduceMotion, setReduceMotion] = useState(false);
+  const [isManuallyPaused, setIsManuallyPaused] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isPageVisible, setIsPageVisible] = useState(true);
 
   const activeIndex = page;
+  const autoPlayActive = !reduceMotion && !isManuallyPaused && !isHovered && isPageVisible && items.length > 1;
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -16,6 +20,23 @@ function ExperienceCarousel({ items }) {
     return () => mediaQuery.removeEventListener('change', listener);
   }, []);
 
+  useEffect(() => {
+    const updateVisibility = () => setIsPageVisible(!document.hidden);
+    updateVisibility();
+    document.addEventListener('visibilitychange', updateVisibility);
+    return () => document.removeEventListener('visibilitychange', updateVisibility);
+  }, []);
+
+  useEffect(() => {
+    if (!autoPlayActive) return undefined;
+
+    const timer = window.setInterval(() => {
+      setPage(([currentIndex]) => [(currentIndex + 1) % items.length, 1]);
+    }, 7000);
+
+    return () => window.clearInterval(timer);
+  }, [activeIndex, autoPlayActive, items.length]);
+
   const paginate = (newDirection) => {
     const nextIndex = activeIndex + newDirection;
     if (nextIndex >= 0 && nextIndex < items.length) {
@@ -24,6 +45,7 @@ function ExperienceCarousel({ items }) {
   };
 
   const jumpTo = (newIndex) => {
+    if (newIndex < 0 || newIndex >= items.length || newIndex === activeIndex) return;
     const dir = newIndex > activeIndex ? 1 : -1;
     setPage([newIndex, dir]);
   };
@@ -85,6 +107,8 @@ function ExperienceCarousel({ items }) {
     <div
       className="w-full max-w-4xl mx-auto flex flex-col items-center outline-none"
       tabIndex={0}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       onKeyDown={handleKeyDown}
       aria-label="Carrusel de experiencia. Usa las flechas del teclado izquierda y derecha para navegar."
     >
@@ -97,7 +121,7 @@ function ExperienceCarousel({ items }) {
         <div
           className="absolute top-4 left-6 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 -z-10 transition-all duration-300 ease-out"
           style={{
-            width: `${(activeIndex / (items.length - 1)) * 100}%`,
+            width: `${items.length > 1 ? (activeIndex / (items.length - 1)) * 100 : 0}%`,
             maxWidth: 'calc(100% - 3rem)',
           }}
         />
@@ -154,7 +178,7 @@ function ExperienceCarousel({ items }) {
               dragElastic={0.4}
               onDragEnd={handleDragEnd}
               className="w-full max-w-2xl bg-white dark:bg-gray-800 p-6 md:p-8 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-xl hover:shadow-2xl transition-shadow duration-300 cursor-grab active:cursor-grabbing select-none"
-              aria-live="polite"
+              aria-live={autoPlayActive ? 'off' : 'polite'}
             >
               <h3 className="text-xl md:text-2xl font-extrabold text-gray-800 dark:text-gray-100 mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent leading-snug">
                 {currentItem.title}
@@ -167,8 +191,8 @@ function ExperienceCarousel({ items }) {
         </AnimatePresence>
       </div>
 
-      {/* 3. Controles Inferiores (Flechas + Puntos) */}
-      <div className="flex items-center gap-6 mt-6">
+      {/* 3. Controles manuales y reproducción automática */}
+      <div className="mt-6 flex flex-wrap items-center justify-center gap-4 sm:gap-6">
         {/* Botón Anterior */}
         <button
           onClick={() => paginate(-1)}
@@ -184,7 +208,7 @@ function ExperienceCarousel({ items }) {
         </button>
 
         {/* Puntos Indicadores */}
-        <div className="flex gap-2">
+        <div className="flex gap-2" role="group" aria-label="Seleccionar experiencia">
           {items.map((_, index) => (
             <button
               key={index}
@@ -213,7 +237,29 @@ function ExperienceCarousel({ items }) {
         >
           <ChevronRight className="w-5 h-5" />
         </button>
+
+        <button
+          type="button"
+          onClick={() => setIsManuallyPaused((paused) => !paused)}
+          disabled={reduceMotion || items.length < 2}
+          className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full border border-blue-200 bg-white px-4 text-sm font-semibold text-blue-700 shadow-sm transition hover:border-blue-400 hover:bg-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:bg-gray-800 dark:text-blue-300 dark:hover:border-blue-500 dark:hover:bg-gray-700 dark:focus-visible:ring-offset-gray-900"
+          aria-label={reduceMotion ? 'Reproducción automática desactivada por preferencia de movimiento reducido' : isManuallyPaused ? 'Reanudar reproducción automática' : 'Pausar reproducción automática'}
+          aria-pressed={isManuallyPaused || reduceMotion}
+          title={reduceMotion ? 'Desactivada por tu preferencia de movimiento reducido' : undefined}
+        >
+          {isManuallyPaused || reduceMotion ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
+          <span>{reduceMotion ? 'Automático desactivado' : isManuallyPaused ? 'Reanudar' : 'Pausar'}</span>
+        </button>
       </div>
+      <p className="mt-3 text-center text-xs text-gray-500 dark:text-gray-400" aria-live="polite">
+        {reduceMotion
+          ? 'La reproducción automática está desactivada según tu preferencia de movimiento.'
+          : isManuallyPaused
+            ? 'Presentación pausada. Puedes seguir explorando manualmente.'
+            : isHovered
+              ? 'Pasa el cursor fuera de la experiencia para reanudar el avance automático.'
+              : 'Avance automático cada 7 segundos · también puedes elegir una experiencia.'}
+      </p>
     </div>
   );
 }
