@@ -1,5 +1,4 @@
 import Navbar from './components/Navbar';
-import Experience from './pages/Experience';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import fotoPerfil from './assets/foto-perfil.png';
@@ -87,7 +86,7 @@ function App() {
                 variants={heroVariants}
                 custom={2.4}
               >
-                Estudiante  ingeniería de sistemas de la fundación universitaria Área Andina y Licenciatura en Matemáticas en la Universidad Pedagógica Nacional además soy Tecnólogo en Análisis y Desarrollo de Software en el SENA,Colombia, apasionado por la modelación matemática, ciencia de datos y la creación de experiencias web excepcionales con python y React.
+                Tecnólogo en Análisis y Desarrollo de Software del SENA, estudiante de Ingeniería de Sistemas en la Fundación Universitaria del Área Andina y de Licenciatura en Matemáticas en la Universidad Pedagógica Nacional. Mi formación integra conocimientos en desarrollo de software, pensamiento lógico-matemático y resolución de problemas. Cuento con experiencia en proyectos académicos y personales relacionados con la creación de soluciones tecnológicas, utilizando herramientas como Python y React.
               </motion.p>
               {/* Redes sociales grandes */}
               <motion.div
@@ -116,16 +115,6 @@ function App() {
             </motion.div>
           </div>
         </section>
-
-        {/* EXPERIENCIA */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.01 }}
-          transition={{ duration: 0.7, ease: 'easeOut' }}
-        >
-          <Experience />
-        </motion.div>
 
         {/* PROYECTOS */}
         <motion.div
